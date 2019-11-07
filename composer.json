@@ -1,0 +1,10 @@
+{
+    "name": "vivalaz/laravel-route-restrict",
+    "authors": [
+        {
+            "name": "vivalaz",
+            "email": "vitaliy.grinevich1@gmail.com"
+        }
+    ],
+    "require": {}
+}
