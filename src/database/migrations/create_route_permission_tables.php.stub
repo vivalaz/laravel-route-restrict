@@ -35,7 +35,7 @@ class CreateRoutePermissionTables extends Migration
         Schema::create($this->tableNames['routes'], function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->string('route');
+            $table->string('route')->unique();
             $table->string('name')->nullable();
 
             $table->timestamps();
