@@ -12,17 +12,6 @@ namespace Vivalaz\LaravelRouteRestrict\app\Helpers;
 class Helper
 {
 
-    public static function getProjectRoutes()
-    {
-        return collect(\Route::getRoutes())->map(function ($route) {
-            return [
-                'uri' => $route->uri,
-                'methods' => $route->methods,
-                'action' => $route->action
-            ];
-        })->toArray();
-    }
-
     /**
      * Get array plucked by IDs
      * @param $data
