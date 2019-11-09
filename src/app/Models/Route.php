@@ -2,8 +2,8 @@
 
 namespace Vivalaz\LaravelRouteRestrict\Models;
 
-use App\Exceptions\RouteAlreadyExists;
 use Illuminate\Database\Eloquent\Model;
+use Vivalaz\LaravelRouteRestrict\app\Exceptions\RouteAlreadyExists;
 use Vivalaz\LaravelRouteRestrict\app\Exceptions\RouteDoesNotExists;
 
 class Route extends Model
@@ -84,6 +84,30 @@ class Route extends Model
         }
 
         return $route;
+    }
+
+    /**
+     * Sync roles for routes
+     * @param array $roleIds
+     * @return Route
+     */
+    public function syncRoles(array $roleIds = []): Route
+    {
+        $this->roles()->sync($roleIds);
+
+        return $this;
+    }
+
+    /**
+     * Sync permissions for routes
+     * @param array $permissionIds
+     * @return Route
+     */
+    public function syncPermissions(array $permissionIds = []): Route
+    {
+        $this->permissions()->sync($permissionIds);
+
+        return $this;
     }
 
 }

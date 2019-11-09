@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Exceptions;
+namespace Vivalaz\LaravelRouteRestrict\app\Exceptions;
 
 use InvalidArgumentException;
 
