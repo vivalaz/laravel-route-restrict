@@ -5,6 +5,7 @@ namespace Vivalaz\LaravelRouteRestrict\Models;
 use Illuminate\Database\Eloquent\Model;
 use Vivalaz\LaravelRouteRestrict\app\Exceptions\RouteAlreadyExists;
 use Vivalaz\LaravelRouteRestrict\app\Exceptions\RouteDoesNotExists;
+use Vivalaz\LaravelRouteRestrict\app\Helpers\Helper;
 
 class Route extends Model
 {
@@ -72,15 +73,15 @@ class Route extends Model
 
     /**
      * Find route by route path
-     * @param string $route
+     * @param string $routeName
      * @return Route
      */
-    public static function findByRoute(string $route = ''): Route
+    public static function findByRoute(string $routeName = ''): Route
     {
-        $route = static::whereRoute($route)->first();
+        $route = static::whereRoute($routeName)->first();
 
         if (!$route) {
-            throw RouteDoesNotExists::byRoute($route);
+            throw RouteDoesNotExists::byRoute($routeName);
         }
 
         return $route;
@@ -110,4 +111,31 @@ class Route extends Model
         return $this;
     }
 
+    /**
+     * Route has minimum one role that intersects with user roles
+     * @param array $roles
+     * @return bool
+     */
+    public function hasRoles(array $roles = [])
+    {
+        $routeRoles = Helper::getArrayOfIds($this->roles());
+
+        $intersected = array_intersect($routeRoles, $roles);
+
+        return count($intersected) > 0 ? true : false;
+    }
+
+    /**
+     * Route has minimum one permission that intersects with user permissions
+     * @param array $permissions
+     * @return bool
+     */
+    public function hasPermissions(array $permissions = [])
+    {
+        $routePermissions = Helper::getArrayOfIds($this->permissions());
+
+        $intersected = array_intersect($routePermissions, $permissions);
+
+        return count($intersected) > 0 ? true : false;
+    }
 }
