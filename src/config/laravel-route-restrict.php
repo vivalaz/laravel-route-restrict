@@ -8,8 +8,8 @@ return [
 
     'table_names' => [
         'routes' => 'routes',
-        'route_has_roles' => 'route_has_roles',
-        'route_has_permissions' => 'route_has_permissions'
+        'route_for_roles' => 'route_for_roles',
+        'route_for_permissions' => 'route_for_permissions'
     ]
     
 ];
