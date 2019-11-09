@@ -4,6 +4,7 @@ namespace Vivalaz\LaravelRouteRestrict\Models;
 
 use App\Exceptions\RouteAlreadyExists;
 use Illuminate\Database\Eloquent\Model;
+use Vivalaz\LaravelRouteRestrict\app\Exceptions\RouteDoesNotExists;
 
 class Route extends Model
 {
@@ -51,6 +52,38 @@ class Route extends Model
         }
 
         return static::query()->create($attributes);
+    }
+
+    /**
+     * Find route by his id
+     * @param int $id
+     * @return Route
+     */
+    public static function findById(int $id): Route
+    {
+        $route = static::find($id);
+
+        if (!$route) {
+            throw RouteDoesNotExists::byId($id);
+        }
+
+        return $route;
+    }
+
+    /**
+     * Find route by route path
+     * @param string $route
+     * @return Route
+     */
+    public static function findByRoute(string $route = ''): Route
+    {
+        $route = static::whereRoute($route)->first();
+
+        if (!$route) {
+            throw RouteDoesNotExists::byRoute($route);
+        }
+
+        return $route;
     }
 
 }
