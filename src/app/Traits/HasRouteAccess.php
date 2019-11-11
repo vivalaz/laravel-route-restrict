@@ -15,7 +15,7 @@ trait HasRouteAccess
         $userRoles = Helper::getArrayOfIds($this->roles());
 
         try {
-            return Route::findByRoute($requestRoute)->hasPermissions($userRoles);
+            return Route::findByRoute($requestRoute)->hasRoles($userRoles);
         } catch (RouteDoesNotExists $exception) {
             return true;
         }
