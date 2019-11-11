@@ -112,11 +112,11 @@ class Route extends Model
     }
 
     /**
-     * Route has minimum one role that intersects with user roles
+     * Check if route has minimum one role that intersects with user roles
      * @param array $roles
      * @return bool
      */
-    public function hasRoles(array $roles = [])
+    public function hasRoles(array $roles = []): bool
     {
         $routeRoles = Helper::getArrayOfIds($this->roles());
 
@@ -124,14 +124,25 @@ class Route extends Model
     }
 
     /**
-     * Route has minimum one permission that intersects with user permissions
+     * Check if route has minimum one permission that intersects with user permissions
      * @param array $permissions
      * @return bool
      */
-    public function hasPermissions(array $permissions = [])
+    public function hasPermissions(array $permissions = []): bool
     {
         $routePermissions = Helper::getArrayOfIds($this->permissions());
 
         return Helper::isIntersect($routePermissions, $permissions);
+    }
+
+    /**
+     * Check if route has minimum one role or permission that intersects with user roles or permissions
+     * @param array $roles
+     * @param array $permissions
+     * @return bool
+     */
+    public function hasRolesOrPermissions(array $roles = [], array $permissions = []): bool
+    {
+        return $this->hasRoles($roles) || $this->hasPermissions($permissions);
     }
 }

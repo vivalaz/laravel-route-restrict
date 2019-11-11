@@ -32,9 +32,16 @@ trait HasRouteAccess
         }
     }
 
-    public function hasRouteAccessViaRolesOrPermissions()
+    public function hasRouteAccessViaRolesOrPermissions(string $requestRoute = '')
     {
+        $userRoles = Helper::getArrayOfIds($this->roles());
+        $userPermissions = Helper::getArrayOfIds($this->permissions());
 
+        try {
+            return Route::findByRoute($requestRoute)->hasRolesOrPermissions($userRoles, $userPermissions);
+        } catch (RouteDoesNotExistsException $exception) {
+            return true;
+        }
     }
 
 }
