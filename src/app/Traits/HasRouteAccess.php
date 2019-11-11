@@ -2,8 +2,7 @@
 
 namespace Vivalaz\LaravelRouteRestrict\app\Traits;
 
-
-use Vivalaz\LaravelRouteRestrict\app\Exceptions\RouteDoesNotExistsException;
+use Vivalaz\LaravelRouteRestrict\Exceptions\RouteDoesNotExistsException;
 use Vivalaz\LaravelRouteRestrict\app\Helpers\Helper;
 use Vivalaz\LaravelRouteRestrict\Models\Route;
 

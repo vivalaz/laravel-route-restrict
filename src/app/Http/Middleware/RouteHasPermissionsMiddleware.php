@@ -3,7 +3,7 @@
 namespace Vivalaz\LaravelRouteRestrict\app\Http\Middleware;
 
 use Closure;
-use Vivalaz\LaravelRouteRestrict\app\Exceptions\RouteUnauthorizedException;
+use Vivalaz\LaravelRouteRestrict\Exceptions\RouteUnauthorizedException;
 
 class RouteHasPermissionsMiddleware
 {

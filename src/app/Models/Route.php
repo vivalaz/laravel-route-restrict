@@ -3,8 +3,8 @@
 namespace Vivalaz\LaravelRouteRestrict\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Vivalaz\LaravelRouteRestrict\app\Exceptions\RouteAlreadyExistsException;
-use Vivalaz\LaravelRouteRestrict\app\Exceptions\RouteDoesNotExistsException;
+use Vivalaz\LaravelRouteRestrict\Exceptions\RouteAlreadyExistsException;
+use Vivalaz\LaravelRouteRestrict\Exceptions\RouteDoesNotExistsException;
 use Vivalaz\LaravelRouteRestrict\app\Helpers\Helper;
 
 class Route extends Model
