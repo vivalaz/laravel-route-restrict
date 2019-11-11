@@ -30,4 +30,17 @@ class Helper
         return $data->pluck('id')->toArray();
     }
 
+    /**
+     * Check if route and user permissions are intersect
+     * @param array $routePermissions
+     * @param array $userPermissions
+     * @return bool
+     */
+    public static function isIntersect(array $routePermissions = [], array $userPermissions = [])
+    {
+        $intersected = array_intersect($routePermissions, $userPermissions);
+
+        return count($intersected) > 0 ? true : false;
+    }
+
 }

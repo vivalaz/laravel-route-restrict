@@ -120,9 +120,7 @@ class Route extends Model
     {
         $routeRoles = Helper::getArrayOfIds($this->roles());
 
-        $intersected = array_intersect($routeRoles, $roles);
-
-        return count($intersected) > 0 ? true : false;
+        return Helper::isIntersect($routeRoles, $roles);
     }
 
     /**
@@ -134,8 +132,6 @@ class Route extends Model
     {
         $routePermissions = Helper::getArrayOfIds($this->permissions());
 
-        $intersected = array_intersect($routePermissions, $permissions);
-
-        return count($intersected) > 0 ? true : false;
+        return Helper::isIntersect($routePermissions, $permissions);
     }
 }
