@@ -5,16 +5,16 @@ namespace Vivalaz\LaravelRouteRestrict\app\Http\Middleware;
 use Closure;
 use Vivalaz\LaravelRouteRestrict\app\Exceptions\RouteUnauthorizedException;
 
-class RoutePermissionMiddleware
+class RouteHasRolesMiddleware
 {
 
     public function handle($request, Closure $next)
     {
-        if (auth()->user()->hasRouteAccessViaPermissions($request->path())) {
+        if (auth()->user()->hasRouteAccessViaRoles($request->path())) {
             return $next($request);
         }
 
-        throw RouteUnauthorizedException::permissions();
+        throw RouteUnauthorizedException::roles();
     }
 
 }

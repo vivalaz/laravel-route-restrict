@@ -3,8 +3,8 @@
 namespace Vivalaz\LaravelRouteRestrict\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Vivalaz\LaravelRouteRestrict\app\Exceptions\RouteAlreadyExists;
-use Vivalaz\LaravelRouteRestrict\app\Exceptions\RouteDoesNotExists;
+use Vivalaz\LaravelRouteRestrict\app\Exceptions\RouteAlreadyExistsException;
+use Vivalaz\LaravelRouteRestrict\app\Exceptions\RouteDoesNotExistsException;
 use Vivalaz\LaravelRouteRestrict\app\Helpers\Helper;
 
 class Route extends Model
@@ -49,7 +49,7 @@ class Route extends Model
     public static function create(array $attributes = [])
     {
         if (static::whereRoute($attributes['route'])->first()) {
-            throw RouteAlreadyExists::create($attributes['route']);
+            throw RouteAlreadyExistsException::create($attributes['route']);
         }
 
         return static::query()->create($attributes);
@@ -65,7 +65,7 @@ class Route extends Model
         $route = static::find($id);
 
         if (!$route) {
-            throw RouteDoesNotExists::byId($id);
+            throw RouteDoesNotExistsException::byId($id);
         }
 
         return $route;
@@ -81,7 +81,7 @@ class Route extends Model
         $route = static::whereRoute($routeName)->first();
 
         if (!$route) {
-            throw RouteDoesNotExists::byRoute($routeName);
+            throw RouteDoesNotExistsException::byRoute($routeName);
         }
 
         return $route;
@@ -112,30 +112,37 @@ class Route extends Model
     }
 
     /**
-     * Route has minimum one role that intersects with user roles
+     * Check if route has minimum one role that intersects with user roles
      * @param array $roles
      * @return bool
      */
-    public function hasRoles(array $roles = [])
+    public function hasRoles(array $roles = []): bool
     {
         $routeRoles = Helper::getArrayOfIds($this->roles());
 
-        $intersected = array_intersect($routeRoles, $roles);
-
-        return count($intersected) > 0 ? true : false;
+        return Helper::isIntersect($routeRoles, $roles);
     }
 
     /**
-     * Route has minimum one permission that intersects with user permissions
+     * Check if route has minimum one permission that intersects with user permissions
      * @param array $permissions
      * @return bool
      */
-    public function hasPermissions(array $permissions = [])
+    public function hasPermissions(array $permissions = []): bool
     {
         $routePermissions = Helper::getArrayOfIds($this->permissions());
 
-        $intersected = array_intersect($routePermissions, $permissions);
+        return Helper::isIntersect($routePermissions, $permissions);
+    }
 
-        return count($intersected) > 0 ? true : false;
+    /**
+     * Check if route has minimum one role or permission that intersects with user roles or permissions
+     * @param array $roles
+     * @param array $permissions
+     * @return bool
+     */
+    public function hasRolesOrPermissions(array $roles = [], array $permissions = []): bool
+    {
+        return $this->hasRoles($roles) || $this->hasPermissions($permissions);
     }
 }
