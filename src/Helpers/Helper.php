@@ -1,6 +1,6 @@
 <?php
 
-namespace Vivalaz\LaravelRouteRestrict\app\Helpers;
+namespace Vivalaz\LaravelRouteRestrict\Helpers;
 
 class Helper
 {

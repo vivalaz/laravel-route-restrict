@@ -1,6 +1,6 @@
 <?php
 
-namespace Vivalaz\LaravelRouteRestrict\app\Exceptions;
+namespace Vivalaz\LaravelRouteRestrict\Exceptions;
 
 use Illuminate\Http\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;

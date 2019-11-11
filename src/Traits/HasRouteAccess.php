@@ -1,10 +1,9 @@
 <?php
 
-namespace Vivalaz\LaravelRouteRestrict\app\Traits;
+namespace Vivalaz\LaravelRouteRestrict\Traits;
 
-
-use Vivalaz\LaravelRouteRestrict\app\Exceptions\RouteDoesNotExistsException;
-use Vivalaz\LaravelRouteRestrict\app\Helpers\Helper;
+use Vivalaz\LaravelRouteRestrict\Exceptions\RouteDoesNotExistsException;
+use Vivalaz\LaravelRouteRestrict\Helpers\Helper;
 use Vivalaz\LaravelRouteRestrict\Models\Route;
 
 trait HasRouteAccess
