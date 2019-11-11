@@ -1,6 +1,6 @@
 <?php
 
-namespace Vivalaz\LaravelRouteRestrict\app\Http\Middleware;
+namespace Vivalaz\LaravelRouteRestrict\Middleware;
 
 use Closure;
 use Vivalaz\LaravelRouteRestrict\Exceptions\RouteUnauthorizedException;
