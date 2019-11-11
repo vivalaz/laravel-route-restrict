@@ -3,7 +3,7 @@
 namespace Vivalaz\LaravelRouteRestrict\app\Traits;
 
 
-use Vivalaz\LaravelRouteRestrict\app\Exceptions\RouteDoesNotExists;
+use Vivalaz\LaravelRouteRestrict\app\Exceptions\RouteDoesNotExistsException;
 use Vivalaz\LaravelRouteRestrict\app\Helpers\Helper;
 use Vivalaz\LaravelRouteRestrict\Models\Route;
 
@@ -16,7 +16,7 @@ trait HasRouteAccess
 
         try {
             return Route::findByRoute($requestRoute)->hasRoles($userRoles);
-        } catch (RouteDoesNotExists $exception) {
+        } catch (RouteDoesNotExistsException $exception) {
             return true;
         }
     }
@@ -27,7 +27,7 @@ trait HasRouteAccess
 
         try {
             return Route::findByRoute($requestRoute)->hasPermissions($userPermissions);
-        } catch (RouteDoesNotExists $exception) {
+        } catch (RouteDoesNotExistsException $exception) {
             return true;
         }
     }
