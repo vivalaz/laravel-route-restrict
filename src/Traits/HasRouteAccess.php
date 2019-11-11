@@ -1,6 +1,6 @@
 <?php
 
-namespace Vivalaz\LaravelRouteRestrict\app\Traits;
+namespace Vivalaz\LaravelRouteRestrict\Traits;
 
 use Vivalaz\LaravelRouteRestrict\Exceptions\RouteDoesNotExistsException;
 use Vivalaz\LaravelRouteRestrict\Helpers\Helper;
