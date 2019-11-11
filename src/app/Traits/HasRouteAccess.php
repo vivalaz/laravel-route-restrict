@@ -3,7 +3,7 @@
 namespace Vivalaz\LaravelRouteRestrict\app\Traits;
 
 use Vivalaz\LaravelRouteRestrict\Exceptions\RouteDoesNotExistsException;
-use Vivalaz\LaravelRouteRestrict\app\Helpers\Helper;
+use Vivalaz\LaravelRouteRestrict\Helpers\Helper;
 use Vivalaz\LaravelRouteRestrict\Models\Route;
 
 trait HasRouteAccess
