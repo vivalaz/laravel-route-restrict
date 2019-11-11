@@ -2,7 +2,7 @@
 
 This package allows you to extend default **[spatie/laravel-permission](https://github.com/spatie/laravel-permission "spatie/laravel-permission")** behavoir and manage project routes via roles and permissions which are assigned to users.
 
-#Installation
+# Installation
 
 //todo: make composer installation
 
@@ -48,7 +48,7 @@ return [
 ];
 ```
 
-#Basic usage
+# Basic usage
 
 Firstly, add the ```Vivalaz\LaravelRouteRestrict\Traits\HasRouteAccess``` trait to your ```User``` model:
 
