@@ -48,9 +48,7 @@ class Route extends Model
      */
     public static function create(array $attributes = [])
     {
-        if (static::whereRoute($attributes['route'])->first()) {
-            throw RouteAlreadyExistsException::create($attributes['route']);
-        }
+        self::checkExistsRouteName($attributes['route']);
 
         return static::query()->create($attributes);
     }
@@ -85,6 +83,21 @@ class Route extends Model
         }
 
         return $route;
+    }
+
+    /**
+     * Update route by ID
+     * @param $id
+     * @param array $data
+     * @return bool
+     */
+    public static function updateById($id, array $data = [])
+    {
+        $route = self::findById($id);
+
+        self::checkExistsRouteName($data['route']);
+
+        return $route->update($data);
     }
 
     /**
@@ -144,5 +157,16 @@ class Route extends Model
     public function hasRolesOrPermissions(array $roles = [], array $permissions = []): bool
     {
         return $this->hasRoles($roles) || $this->hasPermissions($permissions);
+    }
+
+    /**
+     * Check if route exists in DB
+     * @param string $route
+     */
+    private static function checkExistsRouteName(string $route)
+    {
+        if (static::whereRoute($route)->first()) {
+            throw RouteAlreadyExistsException::create($route);
+        }
     }
 }

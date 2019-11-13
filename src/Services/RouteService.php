@@ -13,12 +13,13 @@ class RouteService
 
     public function __construct()
     {
-        $this->model = config('laravel-route-restrict.models.route');
+        $class = config('laravel-route-restrict.models.route');
+        $this->model = new $class();
     }
 
     public function index()
     {
-        return $this->model::all();
+        return $this->model->all();
     }
 
     public function show($id)
@@ -33,7 +34,7 @@ class RouteService
 
     public function update(int $id, array $data = [])
     {
-        return $this->model->findById($id)->update($data);
+        return $this->model->updateById($id, $data);
     }
 
     public function destroy($id)
