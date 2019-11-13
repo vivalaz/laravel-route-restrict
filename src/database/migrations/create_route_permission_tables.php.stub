@@ -1,0 +1,86 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateRoutePermissionTables extends Migration
+{
+
+    /**
+     * Table names fetched from Vivalaz/LaravelRouteRestrict package
+     * @var array
+     */
+    protected $tableNames;
+
+    /**
+     * Table names fetched from Spatie/LaravelPermissions package
+     * @var array
+     */
+    protected $permissionTableNames;
+
+    public function __construct()
+    {
+        $this->tableNames = config('laravel-route-restrict.table_names');
+        $this->permissionTableNames = config('permission.table_names');
+    }
+
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create($this->tableNames['routes'], function (Blueprint $table) {
+            $table->bigIncrements('id');
+
+            $table->string('route')->unique();
+            $table->string('name')->nullable();
+
+            $table->timestamps();
+        });
+
+        Schema::create($this->tableNames['route_for_roles'], function (Blueprint $table) {
+            $table->unsignedBigInteger('route_id')->index();
+            $table->unsignedBigInteger('role_id')->index();
+
+            $table->foreign('route_id')
+                ->references('id')
+                ->on($this->tableNames['routes'])
+                ->onDelete('cascade');
+
+            $table->foreign('role_id')
+                ->references('id')
+                ->on($this->permissionTableNames['roles'])
+                ->onDelete('cascade');
+        });
+
+        Schema::create($this->tableNames['route_for_permissions'], function (Blueprint $table) {
+            $table->unsignedBigInteger('route_id')->index();
+            $table->unsignedBigInteger('permission_id')->index();
+
+            $table->foreign('route_id')
+                ->references('id')
+                ->on($this->tableNames['routes'])
+                ->onDelete('cascade');
+
+            $table->foreign('permission_id')
+                ->references('id')
+                ->on($this->permissionTableNames['permissions'])
+                ->onDelete('cascade');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::drop($this->tableNames['route_for_permissions']);
+        Schema::drop($this->tableNames['route_for_roles']);
+        Schema::drop($this->tableNames['roles']);
+    }
+}

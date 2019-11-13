@@ -1,10 +1,29 @@
 {
     "name": "vivalaz/laravel-route-restrict",
+    "type": "library",
+    "description": "Managing project routes via roles and permissions which are assigned to users.",
+    "keywords": [
+        "laravel",
+        "php",
+        "spatie/laravel-permission",
+        "permissions",
+        "roles",
+        "route",
+        "routes"
+    ],
+    "homepage": "https://github.com/vivalaz/laravel-route-restrict",
+    "license": "",
     "authors": [
         {
             "name": "vivalaz",
             "email": "vitaliy.grinevich1@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "php": ">=5.3.0"
+    },
+    "autoload": {
+        "psr-0": {},
+        "psr-4": {}
+    }
 }
