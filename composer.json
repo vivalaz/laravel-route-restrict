@@ -1,6 +1,5 @@
 {
     "name": "vivalaz/laravel-route-restrict",
-    "type": "library",
     "description": "Managing project routes via roles and permissions which are assigned to users.",
     "keywords": [
         "laravel",
@@ -20,10 +19,18 @@
         }
     ],
     "require": {
-        "php": ">=5.3.0"
+        
     },
     "autoload": {
-        "psr-0": {},
-        "psr-4": {}
-    }
+        "psr-4": {
+            "Vivalaz\\LaravelRouteRestrict\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Vivalaz\\LaravelRouteRestrict\\LaravelRouteRestrictServiceProvider"
+            ]
+        }
+    },
 }
