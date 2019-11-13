@@ -5,7 +5,7 @@
     "keywords": [
         "laravel",
         "php",
-        "spatie/laravel-permission",
+        "laravel-permission",
         "permissions",
         "roles",
         "route",
