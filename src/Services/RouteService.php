@@ -39,7 +39,7 @@ class RouteService
 
     public function destroy($id)
     {
-        return $this->model->findById($id)->destroy();
+        return $this->model->findById($id)->delete();
     }
 
     public function getProjectRoutes()
