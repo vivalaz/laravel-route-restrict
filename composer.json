@@ -23,7 +23,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Vivalaz\\LaravelRouteRestrict\\": "src"
+            "Vivalaz\\LaravelRouteRestrict\\": "src/"
         }
     },
     "extra": {
