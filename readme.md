@@ -9,30 +9,19 @@
 
 This package allows you to extend default **[spatie/laravel-permission](https://github.com/spatie/laravel-permission "spatie/laravel-permission")** behavoir and manage project routes via roles and permissions which are assigned to users.
 
-# Installation
+# Laravel Installation
 
-//todo: make composer installation
-
-**Or you can manually add package to your project:**
-
-Firstly, you need to add autoload to project ```composer.json```. Let's go ahead and autoload our package via the PSR-4 autoload block:
+You can install the package via composer:
 ```
-"autoload": {
-    "psr-4": {
-        "Vivalaz\\LaravelRouteRestrict\\": "packages/Vivalaz/laravel-route-restrict/src"
-    }
-},
+composer require vivalaz/laravel-route-restrict
 ```
-Then we need composer to run the autoloader and autoload our package. To do this we run the following command: ```composer dump-autoload```.
 
-Then add package to the project service provider in your ```config/app.php``` file:
+The service provider will automatically get registered. Or you may manually add the service provider in your ```config/app.php``` file:
 
 ```
 	'providers' => [
 		// ...
-		
 		Vivalaz\LaravelRouteRestrict\LaravelRouteRestrictServiceProvider::class
-		
 		//..
 	]
 ```
@@ -92,30 +81,39 @@ Route::create(['route' => 'api/route'])->syncRoles([1]);
 Route::create(['route' => 'api/permissions_route'])->syncPermissions([1,2,3]);
 ```
 
-Next you need to add middlewares to routes. Firstly, register middlewares in ```Kernel.php``` file in ```$routeMiddleware```.
+**WARNING: If route not spicified in database, then it can be accessed by any user with any role or permission.**
+
+# Using a middleware
+This package comes with ```RouteHasRolesMiddleware```, ```RouteHasPermissionsMiddleware``` and ```RouteHasRolesOrPermissionsMiddleware``` middleware. You can add them inside your ```app/Http/Kernel.php``` file.
+
 ```
 protected $routeMiddleware = [
-	// **
+	// ...
 	'route_has_roles' => RouteHasRolesMiddleware::class,
 	'route_has_permissions' => RouteHasPermissionsMiddleware::class,
 	'route_has_roles_or_permissions' => RouteHasRolesOrPermissionsMiddleware::class
-	//**
+	// ...
     ];
 ```
 
-1. ``` RouteHasRolesMiddleware::class``` - check if user has roles that route has. If user doesnt have any role, which are allowed for route it throws 403 Forbidden.
-2. ``` RouteHasPermissionsMiddleware::class``` - check if user has permissions that route has. If user doesnt have any permission, which are allowed for route it throws 403 Forbidden.
-3. ```RouteHasRolesOrPermissionsMiddleware::class``` - - check if user has roles or permissions that route has. If user doesnt have any role or permission, which are allowed for route it throws 403 Forbidden.
+1. ``` RouteHasRolesMiddleware::class``` - check if user has roles that route requires. If user doesn't have any role, which are allowed for route it throws 403 Forbidden.
+2. ``` RouteHasPermissionsMiddleware::class``` - check if user has permissions that route requires. If user doesn't have any permission, which are allowed for route it throws 403 Forbidden.
+3. ```RouteHasRolesOrPermissionsMiddleware::class``` - check if user has roles or permissions that route requires. If user doesn't have any role or permission, which are allowed for route it throws 403 Forbidden.
 
-Then you can add registered middlewares to route protection. In ```web.php``` or ```api.php``` you can protect separate route:
+Then you can protect your routes using this middleware in ```web.php``` or ```api.php```.
+```
+Route::group(['middleware' => ['route_has_roles_or_permissions']], function() {
+    //
+});
+```
+Alternatively, you can add middleware to each route individually.
 ```
 Route::get('/home', 'HomeController@index')->middleware('route_has_roles_or_permissions');
 ```
-or you can protect group of routes:
+Or you can protect your controllers similarly, by setting desired middleware in the constructor:
 ```
-Route::group(['middleware' => 'route_has_roles_or_permissions'], function() {
-    Route::get('/home', 'HomeController@index');
-});
+public function __construct()
+{
+    $this->middleware(['route_has_roles_or_permissions']);
+}
 ```
-
-**WARNING: If route not spicified in database, then it can be accessed by any user with any role or permission.**
