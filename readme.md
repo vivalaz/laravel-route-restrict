@@ -6,7 +6,19 @@ This package allows you to extend default **[spatie/laravel-permission](https://
 
 //todo: make composer installation
 
-You can manually add package to the project service provider in your ```config/app.php``` file:
+**Or you can manually add package to your project:**
+
+Firstly, you need to add autoload to project ```composer.json```. Let's go ahead and autoload our package via the PSR-4 autoload block:
+```
+"autoload": {
+    "psr-4": {
+        "Vivalaz\\LaravelRouteRestrict\\": "packages/Vivalaz/laravel-route-restrict/src"
+    }
+},
+```
+Then we need composer to run the autoloader and autoload our package. To do this we run the following command: ```composer dump-autoload```.
+
+Then add package to the project service provider in your ```config/app.php``` file:
 
 ```
 	'providers' => [
