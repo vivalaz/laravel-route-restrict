@@ -1,6 +1,9 @@
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/vivalaz/laravel-route-restrict.svg?style=flat-square)](https://packagist.org/packages/vivalaz/laravel-route-restrict)
-[![Build Status](https://img.shields.io/travis/vivalaz/laravel-route-restrict/master.svg?style=flat-square)](https://packagist.org/packages/vivalaz/laravel-route-restrict)
-[![Total Downloads](https://img.shields.io/packagist/dt/vivalaz/laravel-route-restrict.svg?style=flat-square)](https://packagist.org/packages/vivalaz/laravel-route-restrict)
+[![Latest Stable Version](https://poser.pugx.org/vivalaz/laravel-route-restrict/v/stable)](https://packagist.org/packages/vivalaz/laravel-route-restrict)
+[![Latest Unstable Version](https://poser.pugx.org/vivalaz/laravel-route-restrict/v/unstable)](https://packagist.org/packages/vivalaz/laravel-route-restrict)
+[![Total Downloads](https://poser.pugx.org/vivalaz/laravel-route-restrict/downloads)](https://packagist.org/packages/vivalaz/laravel-route-restrict)
+[![License](https://poser.pugx.org/vivalaz/laravel-route-restrict/license)](https://packagist.org/packages/vivalaz/laravel-route-restrict)
+[![Daily Downloads](https://poser.pugx.org/vivalaz/laravel-route-restrict/d/daily)](https://packagist.org/packages/vivalaz/laravel-route-restrict)
+[![Monthly Downloads](https://poser.pugx.org/vivalaz/laravel-route-restrict/d/monthly)](https://packagist.org/packages/vivalaz/laravel-route-restrict)
 
 **Associate project routes with user permissions and roles**
 
