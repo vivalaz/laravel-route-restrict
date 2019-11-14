@@ -11,7 +11,7 @@
         "routes"
     ],
     "homepage": "https://github.com/vivalaz/laravel-route-restrict",
-    "license": "",
+    "license": "MIT",
     "authors": [
         {
             "name": "vivalaz",
