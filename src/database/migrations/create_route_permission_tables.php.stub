@@ -37,6 +37,7 @@ class CreateRoutePermissionTables extends Migration
 
             $table->string('route')->unique();
             $table->string('name')->nullable();
+            $table->enum('method', ['GET', 'POST', 'PUT', 'PATCH', 'DELETE']);
 
             $table->timestamps();
         });
@@ -81,6 +82,6 @@ class CreateRoutePermissionTables extends Migration
     {
         Schema::drop($this->tableNames['route_for_permissions']);
         Schema::drop($this->tableNames['route_for_roles']);
-        Schema::drop($this->tableNames['roles']);
+        Schema::drop($this->tableNames['routes']);
     }
 }

@@ -10,7 +10,7 @@ class RouteHasRolesMiddleware
 
     public function handle($request, Closure $next)
     {
-        if (auth()->user()->hasRouteAccessViaRoles($request->path())) {
+        if (auth()->user()->hasRouteAccessViaRoles($request->path(), $request->method())) {
             return $next($request);
         }
 

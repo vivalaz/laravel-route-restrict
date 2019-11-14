@@ -12,7 +12,8 @@ class Route extends Model
 
     protected $fillable = [
         'route',
-        'name'
+        'name',
+        'method'
     ];
 
     /**
@@ -48,7 +49,7 @@ class Route extends Model
      */
     public static function create(array $attributes = [])
     {
-        self::checkExistsRouteName($attributes['route']);
+        self::isRouteExists($attributes['route'], $attributes['method']);
 
         return static::query()->create($attributes);
     }
@@ -74,9 +75,9 @@ class Route extends Model
      * @param string $routeName
      * @return Route
      */
-    public static function findByRoute(string $routeName = ''): Route
+    public static function findByRoute(string $routeName = '', string $method): Route
     {
-        $route = static::whereRoute($routeName)->first();
+        $route = static::whereRoute($routeName)->whereMethod($method)->first();
 
         if (!$route) {
             throw RouteDoesNotExistsException::byRoute($routeName);
@@ -95,7 +96,7 @@ class Route extends Model
     {
         $route = self::findById($id);
 
-        self::checkExistsRouteName($data['route']);
+        self::isRouteExists($data['route'], $data['method']);
 
         return $route->update($data);
     }
@@ -163,9 +164,9 @@ class Route extends Model
      * Check if route exists in DB
      * @param string $route
      */
-    private static function checkExistsRouteName(string $route)
+    private static function isRouteExists(string $route, string $method)
     {
-        if (static::whereRoute($route)->first()) {
+        if (static::whereRoute($route)->whereMethod($method)->first()) {
             throw RouteAlreadyExistsException::create($route);
         }
     }
