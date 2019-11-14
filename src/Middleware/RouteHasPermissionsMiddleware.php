@@ -10,7 +10,7 @@ class RouteHasPermissionsMiddleware
 
     public function handle($request, Closure $next)
     {
-        if (auth()->user()->hasRouteAccessViaPermissions($request->path())) {
+        if (auth()->user()->hasRouteAccessViaPermissions($request->path(), $request->method())) {
             return $next($request);
         }
 
