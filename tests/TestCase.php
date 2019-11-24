@@ -24,8 +24,6 @@ abstract class TestCase extends Orchestra
         parent::setUp();
 
         $this->setUpDatabase($this->app);
-
-//        $this->testUser = User::first();
     }
 
     protected function getEnvironmentSetUp($app)
@@ -63,14 +61,17 @@ abstract class TestCase extends Orchestra
         include_once __DIR__.'/../src/database/migrations/create_route_permission_tables.php.stub';
         (new \CreateRoutePermissionTables())->up();
 
-        User::create(['email' => 'user@user.com']);
-        User::create(['email' => 'admin@user.com']);
-
         $app[Role::class]->create(['name' => 'UserRole']);
         $app[Role::class]->create(['name' => 'AdminRole']);
 
         $app[Permission::class]->create(['name' => 'UserPermission']);
         $app[Permission::class]->create(['name' => 'AdminPermission']);
+
+        $this->testUser = User::create(['email' => 'user@user.com']);
+        $this->testUser->assignRole('UserRole');
+
+        $this->testAdmin = User::create(['email' => 'admin@user.com']);
+        $this->testAdmin->assignRole('AdminRole');
     }
 
     /**

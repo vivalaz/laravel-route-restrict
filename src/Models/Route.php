@@ -5,6 +5,7 @@ namespace Vivalaz\LaravelRouteRestrict\Models;
 use Illuminate\Database\Eloquent\Model;
 use Vivalaz\LaravelRouteRestrict\Exceptions\RouteAlreadyExistsException;
 use Vivalaz\LaravelRouteRestrict\Exceptions\RouteDoesNotExistsException;
+use Vivalaz\LaravelRouteRestrict\Exceptions\RouteModelException;
 use Vivalaz\LaravelRouteRestrict\Helpers\Helper;
 
 class Route extends Model
@@ -15,6 +16,23 @@ class Route extends Model
         'name',
         'method'
     ];
+
+    public static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($route) {
+            if (empty($route->route)) {
+                throw RouteModelException::emptyRoute();
+            }
+        });
+
+        static::updating(function ($route) {
+            if (empty($route->route)) {
+                throw RouteModelException::emptyRoute();
+            }
+        });
+    }
 
     /**
      * A route may be given various roles.
@@ -84,21 +102,6 @@ class Route extends Model
         }
 
         return $route;
-    }
-
-    /**
-     * Update route by ID
-     * @param $id
-     * @param array $data
-     * @return bool
-     */
-    public static function updateById($id, array $data = [])
-    {
-        $route = self::findById($id);
-
-        self::isRouteExists($data['route'], $data['method']);
-
-        return $route->update($data);
     }
 
     /**
