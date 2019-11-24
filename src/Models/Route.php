@@ -22,15 +22,11 @@ class Route extends Model
         parent::boot();
 
         static::creating(function ($route) {
-            if (empty($route->route)) {
-                throw RouteModelException::emptyRoute();
-            }
+            self::validate($route);
         });
 
         static::updating(function ($route) {
-            if (empty($route->route)) {
-                throw RouteModelException::emptyRoute();
-            }
+            self::validate($route);
         });
     }
 
@@ -67,6 +63,9 @@ class Route extends Model
      */
     public static function create(array $attributes = [])
     {
+        if (!array_key_exists('route', $attributes)) throw RouteModelException::routeNameNotSpecified();
+        if (!array_key_exists('method', $attributes)) throw RouteModelException::routeMethodNotSpecified();
+
         self::isRouteExists($attributes['route'], $attributes['method']);
 
         return static::query()->create($attributes);
@@ -172,5 +171,22 @@ class Route extends Model
         if (static::whereRoute($route)->whereMethod($method)->first()) {
             throw RouteAlreadyExistsException::create($route);
         }
+    }
+
+    /**
+     * Validate route attributes
+     * @param $route
+     * @return bool
+     */
+    private static function validate($route)
+    {
+        if (!isset($route->route) || empty($route->route)) {
+            throw RouteModelException::routeNameNotSpecified();
+        }
+        if (!isset($route->method) || empty($route->method)) {
+            throw RouteModelException::routeMethodNotSpecified();
+        }
+
+        return true;
     }
 }

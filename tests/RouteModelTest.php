@@ -43,7 +43,8 @@ class RouteModelTest extends TestCase
     /**
      * @test
      */
-    public function emptyRouteUpdatingExceptionTest() {
+    public function emptyRouteUpdatingExceptionTest()
+    {
         $route = app(Route::class)->create([
             'route' => 'test_route',
             'method' => 'GET'
@@ -71,6 +72,65 @@ class RouteModelTest extends TestCase
 
         app(Route::class)->create($testArray);
         app(Route::class)->create($testArray);
+    }
+
+    /**
+     * @test
+     */
+    public function routeNameAttributeNotSpecifiedException()
+    {
+        $this->expectExceptionMessage(RouteModelException::ROUTE_NAME_NOT_SPECIFIED);
+
+        app(Route::class)->create([
+            'method' => 'GET'
+        ]);
+    }
+
+    /**
+     * @test
+     */
+    public function routeMethodAttributeNotSpecifiedException()
+    {
+        $this->expectExceptionMessage(RouteModelException::ROUTE_METHOD_NOT_SPECIFIED);
+
+        app(Route::class)->create([
+            'route' => 'test_route'
+        ]);
+    }
+
+    /**
+     * @test
+     */
+    public function routeNameAttributeUpdateNotSpecifiedException()
+    {
+        $route = app(Route::class)->create([
+            'route' => 'test',
+            'method' => 'GET'
+        ]);
+
+        $this->expectExceptionMessage(RouteModelException::ROUTE_NAME_NOT_SPECIFIED);
+
+        app(Route::class)->findById($route->id)->update([
+            'route' => '',
+            'method' => 'POST'
+        ]);
+    }
+
+    /**
+     * @test
+     */
+    public function routeMethodAttributeUpdateNotSpecifiedException()
+    {
+        $route = app(Route::class)->create([
+            'route' => 'test',
+            'method' => 'POST'
+        ]);
+
+        $this->expectExceptionMessage(RouteModelException::ROUTE_METHOD_NOT_SPECIFIED);
+
+        app(Route::class)->findById($route->id)->update([
+            'method' => NULL
+        ]);
     }
 
 }
