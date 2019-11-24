@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8673226f-d37b-46fa-81c6-8535c2d384e3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/tests/RouteTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/TestCase.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/laravel-route-restrict.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravel-route-restrict.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/TestCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/TestCase.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,18 +14,32 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
       <executable />
     </execution>
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Models/Route.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-657">
+            <state relative-caret-position="-967">
               <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
             </state>
           </provider>
@@ -36,8 +48,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/RouteTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="111">
-              <caret line="9" column="28" lean-forward="true" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
+            <state relative-caret-position="289">
+              <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
               <folding>
                 <element signature="e#55#127#0#PHP" expanded="true" />
               </folding>
@@ -46,12 +58,21 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="63">
+              <caret line="3" column="25" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/TestCase.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
-              <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+            <state>
+              <caret line="49" column="80" selection-start-line="49" selection-start-column="80" selection-end-line="49" selection-end-column="80" />
               <folding>
-                <element signature="e#54#100#0#PHP" expanded="true" />
+                <element signature="e#54#95#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -82,13 +103,13 @@
         <option value="$PROJECT_DIR$/src/Middleware/RouteHasRolesOrPermissionsMiddleware.php" />
         <option value="$PROJECT_DIR$/src/Traits/HasRouteAccess.php" />
         <option value="$PROJECT_DIR$/phpunit.xml" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/tests/User.php" />
         <option value="$PROJECT_DIR$/tests/Admin.php" />
         <option value="$PROJECT_DIR$/src/Exceptions/RouteAlreadyExistsException.php" />
-        <option value="$PROJECT_DIR$/tests/RouteTest.php" />
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/tests/TestCase.php" />
+        <option value="$PROJECT_DIR$/tests/RouteTest.php" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -171,8 +192,9 @@
       <path value="$PROJECT_DIR$/vendor/spatie/laravel-permission" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="5" />
+    <option name="y" value="351" />
     <option name="width" value="1440" />
     <option name="height" value="877" />
   </component>
@@ -181,7 +203,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -192,18 +213,13 @@
             <path>
               <item name="laravel-route-restrict" type="b2602c69:ProjectViewProjectNode" />
               <item name="laravel-route-restrict" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="laravel-route-restrict" type="b2602c69:ProjectViewProjectNode" />
-              <item name="laravel-route-restrict" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Models" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -248,42 +264,55 @@
       <option name="presentableId" value="Default" />
       <updated>1573727832983</updated>
       <workItem from="1573727834844" duration="557000" />
+      <workItem from="1574618339336" duration="1738000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="RouteTest_routeAlreadyExistsExceptionTest - 2019.11.24 at 16h 28m 41s.xml">
+    <history-entry file="RouteTest_routeAlreadyExistsExceptionTest - 2019.11.24 at 20h 18m 08s.xml">
       <configuration name="RouteTest.routeAlreadyExistsExceptionTest" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="RouteTest_routeAlreadyExistsExceptionTest - 2019.11.24 at 16h 28m 47s.xml">
+    <history-entry file="RouteTest_routeAlreadyExistsExceptionTest - 2019.11.24 at 20h 18m 39s.xml">
       <configuration name="RouteTest.routeAlreadyExistsExceptionTest" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="RouteTest_routeAlreadyExistsExceptionTest - 2019.11.24 at 16h 29m 16s.xml">
+    <history-entry file="RouteTest_routeAlreadyExistsExceptionTest - 2019.11.24 at 20h 18m 48s.xml">
       <configuration name="RouteTest.routeAlreadyExistsExceptionTest" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="RouteTest_routeAlreadyExistsExceptionTest - 2019.11.24 at 16h 30m 52s.xml">
+    <history-entry file="RouteTest_routeAlreadyExistsExceptionTest - 2019.11.24 at 20h 20m 28s.xml">
       <configuration name="RouteTest.routeAlreadyExistsExceptionTest" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="RouteTest_routeAlreadyExistsExceptionTest - 2019.11.24 at 16h 33m 17s.xml">
+    <history-entry file="RouteTest_routeAlreadyExistsExceptionTest - 2019.11.24 at 20h 20m 33s.xml">
       <configuration name="RouteTest.routeAlreadyExistsExceptionTest" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="RouteTest_routeAlreadyExistsExceptionTest - 2019.11.24 at 16h 34m 17s.xml">
+    <history-entry file="RouteTest_routeAlreadyExistsExceptionTest - 2019.11.24 at 20h 22m 20s.xml">
+      <configuration name="RouteTest.routeAlreadyExistsExceptionTest" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="RouteTest_routeAlreadyExistsExceptionTest - 2019.11.24 at 20h 25m 04s.xml">
+      <configuration name="RouteTest.routeAlreadyExistsExceptionTest" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="RouteTest_routeAlreadyExistsExceptionTest - 2019.11.24 at 20h 26m 58s.xml">
+      <configuration name="RouteTest.routeAlreadyExistsExceptionTest" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="RouteTest_routeAlreadyExistsExceptionTest - 2019.11.24 at 20h 27m 35s.xml">
+      <configuration name="RouteTest.routeAlreadyExistsExceptionTest" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="RouteTest_routeAlreadyExistsExceptionTest - 2019.11.24 at 20h 27m 41s.xml">
       <configuration name="RouteTest.routeAlreadyExistsExceptionTest" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3215000" />
+    <option name="totallyTimeSpent" value="5120000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="877" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="877" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2532189" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25679544" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.34720415" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.34720415" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -291,25 +320,18 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32769832" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32769832" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="right" id="Database" order="3" weight="0.3297568" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/database/migrations/create_route_permission_tables.php.stub">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="45" column="41" lean-forward="true" selection-start-line="45" selection-start-column="41" selection-end-line="45" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Middleware/RouteHasPermissionsMiddleware.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
@@ -361,13 +383,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../fox_core/composer.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="261">
@@ -375,16 +390,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Admin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="14" column="29" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="29" />
-          <folding>
-            <element signature="e#55#94#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Admin.php" />
     <entry file="file://$PROJECT_DIR$/tests/User.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
@@ -432,28 +438,70 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Models/Route.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-657">
+        <state relative-caret-position="-967">
           <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/database/migrations/create_route_permission_tables.php.stub">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" column="33" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/spatie/laravel-permission/database/migrations/create_permission_tables.php.stub">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="16" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/spatie/laravel-permission/src/Models/Permission.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-106">
+          <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/spatie/laravel-permission/src/Models/Role.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="15" column="6" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/spatie/laravel-permission/config/permission.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="83" column="38" selection-start-line="83" selection-start-column="30" selection-end-line="83" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/TestCase.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="49" column="80" selection-start-line="49" selection-start-column="80" selection-end-line="49" selection-end-column="80" />
+          <folding>
+            <element signature="e#54#95#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/RouteTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="9" column="28" lean-forward="true" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
+        <state relative-caret-position="289">
+          <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
           <folding>
             <element signature="e#55#127#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/TestCase.php">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-          <folding>
-            <element signature="e#54#100#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="63">
+          <caret line="3" column="25" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
         </state>
       </provider>
     </entry>
