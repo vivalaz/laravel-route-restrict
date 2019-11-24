@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8673226f-d37b-46fa-81c6-8535c2d384e3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Exceptions/RouteModelException.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Exceptions/RouteModelException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Models/Route.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Route.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/RouteModelTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/RouteModelTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,11 +32,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Models/Route.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="67" column="8" selection-start-line="67" selection-start-column="8" selection-end-line="67" selection-end-column="8" />
+            <state relative-caret-position="348">
+              <caret line="72" lean-forward="true" selection-start-line="72" selection-end-line="72" />
             </state>
           </provider>
         </entry>
@@ -51,6 +49,15 @@
               <folding>
                 <element signature="e#55#127#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="84">
+              <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -86,12 +93,12 @@
         <option value="$PROJECT_DIR$/tests/Admin.php" />
         <option value="$PROJECT_DIR$/src/Exceptions/RouteAlreadyExistsException.php" />
         <option value="$PROJECT_DIR$/composer.json" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/tests/RouteTest.php" />
         <option value="$PROJECT_DIR$/tests/TestCase.php" />
         <option value="$PROJECT_DIR$/src/Exceptions/RouteModelException.php" />
         <option value="$PROJECT_DIR$/tests/RouteModelTest.php" />
         <option value="$PROJECT_DIR$/src/Models/Route.php" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -197,12 +204,6 @@
               <item name="laravel-route-restrict" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="laravel-route-restrict" type="b2602c69:ProjectViewProjectNode" />
-              <item name="laravel-route-restrict" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Exceptions" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -272,14 +273,11 @@
       <option name="presentableId" value="Default" />
       <updated>1573727832983</updated>
       <workItem from="1573727834844" duration="557000" />
-      <workItem from="1574618339336" duration="5526000" />
+      <workItem from="1574618339336" duration="5619000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="RouteModelTest_routeMethodAttributeUpdateNotSpecifiedException - 2019.11.24 at 21h 22m 24s.xml">
-      <configuration name="RouteModelTest.routeMethodAttributeUpdateNotSpecifiedException" configurationId="PHPUnitRunConfigurationType" />
-    </history-entry>
     <history-entry file="RouteModelTest_routeMethodAttributeUpdateNotSpecifiedException - 2019.11.24 at 21h 22m 39s.xml">
       <configuration name="RouteModelTest.routeMethodAttributeUpdateNotSpecifiedException" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
@@ -307,15 +305,18 @@
     <history-entry file="RouteModelTest - 2019.11.24 at 21h 31m 27s.xml">
       <configuration name="RouteModelTest" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
+    <history-entry file="RouteModelTest - 2019.11.24 at 21h 32m 23s.xml">
+      <configuration name="RouteModelTest" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8908000" />
+    <option name="totallyTimeSpent" value="9001000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25679544" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25679544" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -328,7 +329,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32769832" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32769832" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -465,13 +466,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="3" column="25" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/TestCase.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="939">
@@ -503,6 +497,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Models/Route.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="72" lean-forward="true" selection-start-line="72" selection-end-line="72" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tests/RouteModelTest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1307">
@@ -513,10 +514,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Models/Route.php">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="67" column="8" selection-start-line="67" selection-start-column="8" selection-end-line="67" selection-end-column="8" />
+        <state relative-caret-position="84">
+          <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
         </state>
       </provider>
     </entry>
