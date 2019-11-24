@@ -19,6 +19,12 @@ abstract class TestCase extends Orchestra
     protected $testUser;
     protected $testAdmin;
 
+    protected $roleAdmin;
+    protected $roleUser;
+
+    protected $permissionUser;
+    protected $permissionAdmin;
+
     public function setUp(): void
     {
         parent::setUp();
@@ -61,11 +67,11 @@ abstract class TestCase extends Orchestra
         include_once __DIR__.'/../src/database/migrations/create_route_permission_tables.php.stub';
         (new \CreateRoutePermissionTables())->up();
 
-        $app[Role::class]->create(['name' => 'UserRole']);
-        $app[Role::class]->create(['name' => 'AdminRole']);
+        $this->roleUser = $app[Role::class]->create(['name' => 'UserRole']);
+        $this->roleAdmin = $app[Role::class]->create(['name' => 'AdminRole']);
 
-        $app[Permission::class]->create(['name' => 'UserPermission']);
-        $app[Permission::class]->create(['name' => 'AdminPermission']);
+        $this->permissionUser = $app[Permission::class]->create(['name' => 'UserPermission']);
+        $this->permissionAdmin = $app[Permission::class]->create(['name' => 'AdminPermission']);
 
         $this->testUser = User::create(['email' => 'user@user.com']);
         $this->testUser->assignRole('UserRole');
