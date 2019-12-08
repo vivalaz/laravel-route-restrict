@@ -76,9 +76,9 @@ This package allows for routes to be associated with user permissions and roles.
 For add roles or permissions that can be accessed by user you need to create new ```Route``` in database. Then you can sync roles or permissions:
 ```
 // sync roles to route
-Route::create(['route' => 'api/route'])->syncRoles([1]);
+Route::create(['route' => 'api/route', 'method' => 'GET'])->syncRoles([1]);
 // sync permissions to route
-Route::create(['route' => 'api/permissions_route'])->syncPermissions([1,2,3]);
+Route::create(['route' => 'api/permissions_route', 'method' => 'GET'])->syncPermissions([1,2,3]);
 ```
 
 **WARNING: If route not spicified in database, then it can be accessed by any user with any role or permission.**
@@ -117,6 +117,10 @@ public function __construct()
     $this->middleware(['route_has_roles_or_permissions']);
 }
 ```
+
+# Testing
+
+``composer test``
 
 # License
 
