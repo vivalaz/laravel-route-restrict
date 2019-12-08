@@ -5,6 +5,7 @@ namespace Vivalaz\LaravelRouteRestrict\Models;
 use Illuminate\Database\Eloquent\Model;
 use Vivalaz\LaravelRouteRestrict\Exceptions\RouteAlreadyExistsException;
 use Vivalaz\LaravelRouteRestrict\Exceptions\RouteDoesNotExistsException;
+use Vivalaz\LaravelRouteRestrict\Exceptions\RouteModelException;
 use Vivalaz\LaravelRouteRestrict\Helpers\Helper;
 
 class Route extends Model
@@ -15,6 +16,19 @@ class Route extends Model
         'name',
         'method'
     ];
+
+    public static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($route) {
+            self::validate($route);
+        });
+
+        static::updating(function ($route) {
+            self::validate($route);
+        });
+    }
 
     /**
      * A route may be given various roles.
@@ -49,6 +63,9 @@ class Route extends Model
      */
     public static function create(array $attributes = [])
     {
+        if (!array_key_exists('route', $attributes)) throw RouteModelException::routeNameNotSpecified();
+        if (!array_key_exists('method', $attributes)) throw RouteModelException::routeMethodNotSpecified();
+
         self::isRouteExists($attributes['route'], $attributes['method']);
 
         return static::query()->create($attributes);
@@ -84,21 +101,6 @@ class Route extends Model
         }
 
         return $route;
-    }
-
-    /**
-     * Update route by ID
-     * @param $id
-     * @param array $data
-     * @return bool
-     */
-    public static function updateById($id, array $data = [])
-    {
-        $route = self::findById($id);
-
-        self::isRouteExists($data['route'], $data['method']);
-
-        return $route->update($data);
     }
 
     /**
@@ -169,5 +171,22 @@ class Route extends Model
         if (static::whereRoute($route)->whereMethod($method)->first()) {
             throw RouteAlreadyExistsException::create($route);
         }
+    }
+
+    /**
+     * Validate route attributes
+     * @param $route
+     * @return bool
+     */
+    private static function validate($route)
+    {
+        if (!isset($route->route) || empty($route->route)) {
+            throw RouteModelException::routeNameNotSpecified();
+        }
+        if (!isset($route->method) || empty($route->method)) {
+            throw RouteModelException::routeMethodNotSpecified();
+        }
+
+        return true;
     }
 }

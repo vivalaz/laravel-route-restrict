@@ -1,0 +1,5 @@
+.idea/
+vendor/
+composer.lock
+tests/route_restrict_test
+route_restrict_test

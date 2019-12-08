@@ -32,13 +32,13 @@ class Helper
 
     /**
      * Check if route and user permissions are intersect
-     * @param array $routePermissions
-     * @param array $userPermissions
+     * @param array $routeData
+     * @param array $userData
      * @return bool
      */
-    public static function isIntersect(array $routePermissions = [], array $userPermissions = [])
+    public static function isIntersect(array $routeData = [], array $userData = [])
     {
-        $intersected = array_intersect($routePermissions, $userPermissions);
+        $intersected = array_intersect($routeData, $userData);
 
         return count($intersected) > 0 ? true : false;
     }
